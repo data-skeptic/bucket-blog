@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js --out-dir lib --source-maps inline"
+    "build": "babel src --out-dir lib --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,22 @@
   },
   "homepage": "https://github.com/data-skeptic/bucket-blog#readme",
   "devDependencies": {
+    "axios": "^0.19.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "axios": "^0.19.0"
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
-  "dependencies": {
-    "react": "^16.8.6"
+  "peerDependencies": {
+    "axios": "^0.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
