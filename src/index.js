@@ -27,8 +27,8 @@ class BucketBlog extends Component {
   getContent(path) {
     const { bucket } = this.props;
     return axios.get(`https://s3.amazonaws.com/${bucket}${path}`)
-                              .then(({ data }) => this.setContent(data))
-                              .catch(() => this.setContent());
+            .then(({ data }) => this.setContent(data))
+            .catch(() => this.setContent());
   }
   async fullUpdate(props) {
     const { path } = props;
@@ -64,6 +64,8 @@ class BucketBlog extends Component {
     if (Objects.includes(currentPath + '.html')) {
       await this.setFile(currentPath + '.html');
       return await this.setFolder(`${currentPath.replace(/\/[a-zA-Z0-9._-]+$/, '')}?/[a-zA-Z0-9._-]+$`);
+    } else if (Objects.includes(currentPath + '/README.html')) {
+      await this.setFile(currentPath + '/README.html');
     } else if (Objects.includes(currentPath + '/index.html')) {
       await this.setFile(currentPath + '/index.html');
       return await this.setFolder(`${currentPath}?/[a-zA-Z0-9._-]+$`);
