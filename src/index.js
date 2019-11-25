@@ -86,7 +86,7 @@ class BucketBlog extends Component {
 
     return (
       <main className={`BucketBlog${className ? ` ${className}` : ' row'}`} style={style}>
-        <aside className="list-group list-group-flush col p-0 border-right h-100" style={{ minWidth:300, maxWidth: 300 }}>
+        <aside className="overflow-auto list-group list-group-flush col p-0 border-right h-100" style={{ minWidth:300, maxWidth: 300 }}>
           {Objects && window.location.pathname !== '/wiki' && <Link to={window.location.pathname.replace(/\/[a-zA-Z0-9._-]+$/, '')}><i className="mr-2 fa fa-fw fa-level-up" /> Back</Link>}
           {Objects && Objects.filter(obj => obj.match(pathRegex)).filter(obj => obj.includes('index.html')).map((obj, o) => {
             const link = obj.replace(/\/index\.html$/, '');
