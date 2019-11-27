@@ -61,11 +61,12 @@ class BucketBlog extends Component {
     if (!Path || !Objects) return;
     const currentPath = `/${Path.join('/')}`;
 
-    if (Objects.includes(currentPath + '.html')) {
+    if (Objects.includes(currentPath + '/README.html')) {
+      await this.setFile(currentPath + '/README.html');
+      return await this.setFolder(`${currentPath}?/[a-zA-Z0-9._-]+$`);
+    } else if (Objects.includes(currentPath + '.html')) {
       await this.setFile(currentPath + '.html');
       return await this.setFolder(`${currentPath.replace(/\/[a-zA-Z0-9._-]+$/, '')}?/[a-zA-Z0-9._-]+$`);
-    } else if (Objects.includes(currentPath + '/README.html')) {
-      await this.setFile(currentPath + '/README.html');
     } else if (Objects.includes(currentPath + '/index.html')) {
       await this.setFile(currentPath + '/index.html');
       return await this.setFolder(`${currentPath}?/[a-zA-Z0-9._-]+$`);
@@ -96,7 +97,7 @@ class BucketBlog extends Component {
             }).join(' ');
             return <Link active={window.location.pathname === link ? 'active' : ''} to={link} key={o}><i className="mr-2 fa fa-fw fa-folder-open" /> {name}</Link>;
           })}
-          {Objects && Objects.filter(obj => obj.match(pathRegex)).filter(obj => !obj.includes('index.html')).sort(a => a.indexOf('.html')).map((obj, o) => {
+          {Objects && Objects.filter(obj => obj.match(pathRegex)).filter(obj => !obj.includes('index.html')).sort(a => a.indexOf('.html')).filter(obj => !obj.includes('README')).map((obj, o) => {
             if (!obj) return null;
             const link = obj.replace(/\.html$/, '');
             let name = obj.replace(/\/$/, '').split('/');
