@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/data-skeptic/bucket-blog#readme",
   "devDependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -31,7 +31,7 @@
     "react-dom": ">=15.6.2"
   },
   "peerDependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "react": ">=15.6.2",
     "react-dom": ">=15.6.2"
   }
